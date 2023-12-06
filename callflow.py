@@ -73,4 +73,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = CallLogProgram(root)
     root.mainloop()
-/* This will create a simple GUI window with entry fields, text areas, and buttons. You can enter information in the four stages (Who, Why, What, Wrap), add timestamps, and generate a summary. Adjust the code according to your specific requirements and preferences. If you want a more sophisticated GUI, you may explore other GUI libraries or frameworks.*/
+# This will create a simple GUI window with entry fields, text areas, and buttons. You can enter information in the four stages (Who, Why, What, Wrap), add timestamps, and generate a summary. Adjust the code according to your specific requirements and preferences. If you want a more sophisticated GUI, you may explore other GUI libraries or frameworks.
