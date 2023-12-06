@@ -50,8 +50,13 @@ class CallLogProgram:
         }
 
     def add_timestamp(self):
-        timestamp = datetime.datetime.now().strftime("[%Y-%m-%d %H:%M:%S] Eastern Time")
-        self.call_log['Timestamps'].append(timestamp)
+        timestamp = datetime.datetime.now().strftime("[%Y-%m-%d %H:%M:%S] CST")
+        
+        # Get the current cursor position in the "What" text area
+        current_position = self.what_text.index(tk.INSERT)
+
+        # Insert the timestamp at the current cursor position on a new line
+        self.what_text.insert(current_position, f"\n{timestamp}")
 
     def generate_summary(self):
         self.call_log['Who'] = self.who_entry.get()
@@ -62,15 +67,14 @@ class CallLogProgram:
         summary = f"Who: {self.call_log['Who']}\n"
         summary += f"Why: {self.call_log['Why']}\n"
         summary += f"What:\n{self.call_log['What']}\n"
-        summary += "Timestamps:\n"
-        for timestamp in self.call_log['Timestamps']:
-            summary += f"{timestamp}\n"
+        #summary += "Timestamps:\n"
+        #for timestamp in self.call_log['Timestamps']:
+           # summary += f"{timestamp}\n"
         summary += f"Wrap:\n{self.call_log['Wrap']}"
 
-        messagebox.showinfo("Call Log Summary", summary)
+        messagebox.showinfo("Call Summary", summary)
 
 if __name__ == "__main__":
     root = tk.Tk()
     app = CallLogProgram(root)
     root.mainloop()
-# This will create a simple GUI window with entry fields, text areas, and buttons. You can enter information in the four stages (Who, Why, What, Wrap), add timestamps, and generate a summary. Adjust the code according to your specific requirements and preferences. If you want a more sophisticated GUI, you may explore other GUI libraries or frameworks.
